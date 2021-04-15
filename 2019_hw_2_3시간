@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include<math.h>
+
+int main()
+{
+	double x,y=0,mean1,mean2,sum1,sum2,count;
+	printf(" x ? ");
+	scanf("%lf", &x);
+	
+	int n,i;
+	for (n=1; ;n++)
+	{
+		for (sum1=0,sum2=0,count=0, i = 0; i < n; i++)              //n-1까지의 표준편차
+		{
+				sum1 += i * i;
+				sum2 += i;
+				count++;
+		}
+		mean1 = sum1 / count;	//제곱의 평균
+		mean2 = sum2 / count;//평균
+		y = mean1 - mean2 * mean2; //분산
+		y = sqrtf(y); //표준편차
+		if (y > x) break;              //표준편차 y가 x보다 커지는 순간(N) loop나감.
+	}
+
+	printf(" n= %d , (표준편차 %lf) ", n, y);
+
+}
