@@ -1,0 +1,26 @@
+/*
+<과제 1 : 복소수 연산>
+
+다음과 같은 프로그램을 만들어라.
+1) 실수 2개를 입력 받아 각각을 복소수 Z1의 실수부, 허수부로 생각한다.
+2) 1)과 같은 방법으로 두번째 복소수 Z2를 입력한다.
+3) 두 복소수 Z1과 Z2의 더하기, 빼기, 곱하기, 나누기의 결과를 아래 예와 같은 형식으로 화면에 표시한다.
+
+*/
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	double a, b, c, d;
+	printf("복소수 Z1? ");
+	scanf("%lf %lf", &a, &b);
+	printf("복소수 Z2? ");
+	scanf("%lf %lf", &c, &d);
+
+	printf("Z1+Z2 = %1f + %1fi\n", a+c,b+d);
+	printf("Z1-Z2 = %lf + %lfi\n", a-c,b-d);
+	printf("Z1*Z2 = %lf + %lfi\n", a*c-b*d, a*d+c*b);
+	printf("Z1/Z2 = %lf + %lfi\n", (a*c+d*b)/(c*c+d*d), (-1*a*d+c*b)/(c*c+d*d));
+}
